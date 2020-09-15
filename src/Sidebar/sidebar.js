@@ -8,14 +8,13 @@ import StorefrontIcon from "@material-ui/icons/Storefront";
 import VideoLibraryIcon from "@material-ui/icons/VideoLibrary";
 import LocalHospitalIcon from "@material-ui/icons/LocalHospital";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { useStateValue } from "../Context API/StateProvider";
 
 const Sidebar = () => {
+  const [{ user }, dispatch] = useStateValue();
   return (
     <div className="sidebar">
-      <SidebarRow
-        src="https://randomuser.me/api/portraits/men/85.jpg"
-        title="John Doe"
-      />
+      <SidebarRow src={user.photoURL} title={user.displayName} />
       <SidebarRow
         Icon={LocalHospitalIcon}
         title="COVID-19 Information Center"
